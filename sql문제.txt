@@ -5,10 +5,13 @@
 3. 평균 급여가 2000이상인 직업(job)의 직업명과 평균 급여를 평균 급여 기준 오름차순으로 출력
 
 4. 부서별 연봉 불균형 알아보기 각 부서별 최대, 최소 급여의 차이가 2000이상인 그룹을 급여차이를 기준으로 오름차순으로 정렬해서 출력
+select deptno, max(sal)-min(sal) from emp group by deptno having max(sal)-min(sal)>=2000 order by max(sal)-min(sal) asc;
 
 5. 이름에 A가 들어가거나 E가 들어가는 사람들만 포함하여 직업 평균 월급이 1200이 넘는 직업과 직업별 사원수를 출력하여라.
+select job,count(*) from emp where ename like '%A%' or ename like '%E%' group by job having avg(sal)>=1200;
 
 6. 이름에 M이나 B가 들어가는 사람들의 급여 평균을 부서별로 나타내는데, 급여평균이 1000이 넘는 부서와 급여평균 출력하여라. (그룹별로 오름차순 정렬)
+select deptno,avg(sal) from emp where ename like '%M%' or ename like '%B%' group by deptno having avg(sal) >= 1000 order by deptno asc;
 
 7. KING이 담당하고 있는 부서별 직원 이름 및 직업을 검색
 
