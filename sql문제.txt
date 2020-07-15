@@ -30,5 +30,10 @@ select deptno,max(sal), min(sal) from emp group by deptno;
 select deptno from emp where sal<=2500 and job='MANAGER';
 
 9. 부서별 급여의 최대값이 2800 이상이고 고용된 날짜가 81/02/03 보다 더 늦은 부서번호 출력
-
+select deptno 
+from emp group by deptno, hiredate 
+having sum(sal)>=2800 and hiredate>='81/02/03';
 10. 입사일이 같은 사원들의 평균 연봉 출력
+select hiredate,avg(sal) 
+from emp 
+group by hiredate;
