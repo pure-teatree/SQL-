@@ -11,8 +11,13 @@
 6. 이름에 M이나 B가 들어가는 사람들의 급여 평균을 부서별로 나타내는데, 급여평균이 1000이 넘는 부서와 급여평균 출력하여라. (그룹별로 오름차순 정렬)
 
 7. KING이 담당하고 있는 부서별 직원 이름 및 직업을 검색
+select e.ename, e.job,
+from emp e, emp m
+where e.mgr=m.empno and m.ename='KING';
 
 8.부서별 최대값(max),최소값(min) 구하고 급여가 2500이하, 사원의 직급이 MANAGER인 부서(deptno)를 출력하여라.
+select deptno,max(sal), min(sal) from emp group by deptno;
+select deptno from emp where sal<=2500 and job='MANAGER';
 
 9. 부서별 급여의 최대값이 2800 이상이고 고용된 날짜가 81/02/03 보다 더 늦은 부서번호 출력
 
